@@ -52,7 +52,12 @@ def plot_spline_crv(ctrls, pts):
     crv = Shape(geometry=Polyline(pts), appearance=Material((125, 12, 12)))
     scene.add(crv)
 
-    # To complete: Draw the control points and the line between each ones.
+    #Ajout pts contrôle
+    for ptCtrl in ctrls:
+        scene.add(Shape(geometry=Translated(ptCtrl, Sphere(radius=.3)), apparence=Material((255,255,0))))
+
+    #Dessin de la courbe
+    scene.add(Shape(geometry=Polyline(pts), apparence=Material((0,0,255))))
 
     Viewer.display(scene)
 
